@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "subjects#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :subjects, path: 'threads', only: [:index, :show]
 end
