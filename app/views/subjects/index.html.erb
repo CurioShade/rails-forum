@@ -1,2 +1,7 @@
-<h1>Subjects#index</h1>
-<p>Find me in app/views/subjects/index.html.erb</p>
+<h1>Forum</h1>
+<% @subjects.each do |thread|%>
+    <a href="<%= subject_path(thread)%>">
+        <h3><%= thread.title %></h3>
+        <p><%= thread.description %></p>
+    </a>
+<% end %>
