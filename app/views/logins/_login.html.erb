@@ -1,0 +1,19 @@
+<%= form_with url: 'login', model: user do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+    </div>
+
+    <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+
+    <div>
+        <%= form.submit "Log in"%>
+    </div>
+<% end %>
