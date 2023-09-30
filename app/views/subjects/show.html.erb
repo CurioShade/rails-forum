@@ -5,3 +5,7 @@
         <p><%= post.body %></p>
     </a>
 <% end %>
+<% if logged_in? %>
+    <h2>Create a post:</h2>
+    <%= render 'posts/form' %>
+<% end %>
