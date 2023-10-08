@@ -1,7 +1,7 @@
 <h1>Forum</h1>
 <% @subjects.each do |thread|%>
-    <a href="<%= subject_path(thread)%>">
+    <%= link_to thread do %>
         <h3><%= thread.title %></h3>
         <p><%= thread.description %></p>
-    </a>
+    <% end %>
 <% end %>
