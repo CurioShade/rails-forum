@@ -1,10 +1,17 @@
 <div>
-    <h1><%= @post.title %></h1>
+    <h2><%= @post.user.name %></h2>
+    <h3><%= @post.title %></h3>
     <p><%= @post.body %></p>
+    <footer><%= @post.created_at %></footer>
 </div>
 <% @post.comments.each do |comment|%>
     <div class="comment">
+        <h2><%= comment.user.name %></h2>
         <p><%= comment.body %></p>
-        <footer><%= comment.user %></footer>
+        <footer><%= comment.created_at %></footer>
     </div>
+<% end %>
+<% if logged_in? %>
+    <h2>Create a comment:</h2>
+    <%= render 'posts/comment_form' %>
 <% end %>

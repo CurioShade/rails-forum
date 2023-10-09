@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :posts, only: :create
   end
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: :create
+  end
   
   post 'login', to: 'logins#create'
   get 'login', to: 'logins#new'
