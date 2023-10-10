@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include Paginator
   def create
     @subject = Subject.find(params[:subject_id])
     @post = @subject.posts.build(post_params)
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    set_pagination
   end
 
   private
