@@ -1,0 +1,7 @@
+<nav>
+    <% collection.max_pages(@page_limit).times do |i| %>
+        <a href="<%= url_clean_path.
+        concat("?start=#{collection[@page_limit*i].id}",
+        "&record_limit=#{@page_limit}")%>"><%= i+1 %></a>
+    <% end %>
+</nav>
