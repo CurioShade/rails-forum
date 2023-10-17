@@ -14,7 +14,7 @@
 <% end %>
 
 <%= render partial: "application/pager", 
-locals: {collection: @post.comments} %>
+locals: {max_pages: @post.comments.max_pages(@page_limit)} %>
 
 <% if logged_in? %>
     <h2>Create a comment:</h2>

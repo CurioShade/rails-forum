@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    set_pagination
+    set_pagination(2, @post.comments)
   end
 
   private

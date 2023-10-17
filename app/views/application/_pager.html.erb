@@ -1,7 +1,11 @@
 <nav>
-    <% collection.max_pages(@page_limit).times do |i| %>
-        <a href="<%= url_clean_path.
-        concat("?start=#{collection[@page_limit*i].id}",
-        "&record_limit=#{@page_limit}")%>"><%= i+1 %></a>
+    <% if @page != 1 %>
+        <a href="<%= url_clean_path %>"><<</a>
+        <a href="<%= url_clean_path + "?page=#{@page-1}"%>"><</a>
+    <% end %>
+    <p><%= @page.to_s + " of #{max_pages}" %></p>
+    <% if @page != max_pages %>
+        <a href="<%= url_clean_path + "?page=#{@page+1}" %>">></a>
+        <a href="<%= url_clean_path + "?page=#{max_pages}" %>">>></a>
     <% end %>
 </nav>
