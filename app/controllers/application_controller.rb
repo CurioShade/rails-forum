@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
 
+    # Returns string representing url path without query parameters
+    def url_clean_path
+        request.fullpath.sub("?" + request.query_string, "")
+    end
+
     private 
 
     def current_user
