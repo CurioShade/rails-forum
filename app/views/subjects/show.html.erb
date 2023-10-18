@@ -1,9 +1,7 @@
 <h1>Posts</h1>
-<% @subject.posts.each do |post| %>
-    <%= link_to post do %>
-        <h3><%= post.title %></h3>
-    <% end %>
-<% end %>
+<%= render partial: "application/record_limiter", 
+locals: {collection: @subject.posts} %>
+
 <% if logged_in? %>
     <h2>Create a post:</h2>
     <%= render 'posts/form' %>

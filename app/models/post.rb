@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include RecordLimiter
+
   belongs_to :user
   belongs_to :subject
 
