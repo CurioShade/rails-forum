@@ -5,18 +5,12 @@
     <footer><%= @post.created_at %></footer>
 </div>
 
-<% @post.comments.limit_records(@record_id, @page_limit).each do |comment|%>
-    <div class="comment">
-        <h2><%= comment.user.name %></h2>
-        <p><%= comment.body %></p>
-        <footer><%= comment.created_at %></footer>
-    </div>
-<% end %>
+<%= render @post.comments.limit_records(@record_id, @page_limit) %>
 
 <%= render partial: "application/pager", 
 locals: {max_pages: @post.comments.max_pages(@page_limit)} %>
 
 <% if logged_in? %>
     <h2>Create a comment:</h2>
-    <%= render 'posts/comment_form' %>
+    <%= render 'comments/form' %>
 <% end %>
