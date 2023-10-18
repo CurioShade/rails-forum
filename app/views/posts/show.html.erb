@@ -5,10 +5,8 @@
     <footer><%= @post.created_at %></footer>
 </div>
 
-<%= render @post.comments.limit_records(@record_id, @page_limit) %>
-
-<%= render partial: "application/pager", 
-locals: {max_pages: @post.comments.max_pages(@page_limit)} %>
+<%= render partial: "application/record_limiter", 
+locals: {collection: @post.comments} %>
 
 <% if logged_in? %>
     <h2>Create a comment:</h2>

@@ -1,0 +1,3 @@
+<%= render collection.limit_records(@record_id, @page_limit) %>
+<%= render partial: "application/pager", 
+locals: {max_pages: collection.max_pages(@page_limit)} %>
