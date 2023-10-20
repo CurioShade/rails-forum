@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   
   post 'login', to: 'logins#create'
   get 'login', to: 'logins#new'
+
+  post 'signup', to: 'signups#create'
+  get 'signup', to: 'signups#new'
 end

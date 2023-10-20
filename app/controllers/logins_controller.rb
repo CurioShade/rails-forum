@@ -4,11 +4,11 @@ class LoginsController < ApplicationController
   end
 
   def create
-    user = User.where(name: user_params[:name], 
-            password: user_params[:password]).first
-    unless user.nil?
+    @user = User.find_by(name: user_params[:name])&.
+    authenticate(user_params[:password])
+    unless @user.nil? || @user == false
       reset_session
-      session[:current_user_id] = user.id
+      session[:current_user_id] = @user.id
       flash[:notice] = "Successful login!"
       redirect_to root_url
     else
