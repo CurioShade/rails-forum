@@ -1,11 +1,15 @@
 <nav>
-    <% if @page != 1 %>
-        <a href="<%= url_clean_path %>"><<</a>
-        <a href="<%= url_clean_path + "?page=#{@page-1}"%>"><</a>
-    <% end %>
-    <p><%= @page.to_s + " of #{max_pages}" %></p>
-    <% if @page != max_pages %>
-        <a href="<%= url_clean_path + "?page=#{@page+1}" %>">></a>
-        <a href="<%= url_clean_path + "?page=#{max_pages}" %>">>></a>
+    <% if max_pages > 0%>
+        <% if @page > 1 %>
+            <a href="<%= url_clean_path %>"><<</a>
+            <a href="<%= url_clean_path + "?page=#{@page-1}"%>"><</a>
+        <% end %>
+        <p><%= @page.to_s + " of #{max_pages}" %></p>
+        <% if @page < max_pages %>
+            <a href="<%= url_clean_path + "?page=#{@page+1}" %>">></a>
+            <a href="<%= url_clean_path + "?page=#{max_pages}" %>">>></a>
+        <% end %>
+    <% else %>
+        <p>1 of 1</p>
     <% end %>
 </nav>
