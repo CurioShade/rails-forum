@@ -1,0 +1,8 @@
+<div class="account_navigation">
+    <% unless logged_in? %>
+        <a href="signup">Signup</a>
+        <a href="login">Login</a>
+    <% else %>
+        <%= link_to "Logout", "logout/", data: { turbo_method: :delete}%>
+    <% end %>
+</div>

@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <%= form_with url: 'login', model: user do |form| %>
     <div>
         <%= form.label :name %>

@@ -7,7 +7,7 @@ class SignupsController < ApplicationController
     @user = User.new(user_params.merge(access_type: :standard_access))
     if @user.save
       flash[:notice] = "Account was successfuly created! You can now log in."
-      redirect_to root_url
+      redirect_to 'login'
     else
       render :new, status: :unprocessable_entity
     end
