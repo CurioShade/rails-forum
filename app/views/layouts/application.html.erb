@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= yield :top_bar if content_for?(:top_bar)%>
     <%= yield %>
   </body>
 </html>

@@ -1,8 +1,8 @@
 <div class="account_navigation">
     <% unless logged_in? %>
-        <a href="signup">Signup</a>
-        <a href="login">Login</a>
+        <a href="<%= signup_path %>">Signup</a>
+        <a href="<%= login_path %>">Login</a>
     <% else %>
-        <%= link_to "Logout", "logout/", data: { turbo_method: :delete}%>
+        <%= link_to "Logout", logout_path, data: { turbo_method: :delete}%>
     <% end %>
 </div>

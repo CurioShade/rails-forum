@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    layout "forum"
     helper_method :current_user, :logged_in?
 
     # Returns string representing url path without query parameters
