@@ -1,7 +1,14 @@
 <h1>Forum</h1>
-<% @subjects.each do |thread|%>
-    <%= link_to thread do %>
-        <h3><%= thread.title %></h3>
-        <p><%= thread.description %></p>
-    <% end %>
+<% @categories.each do |category| %>
+    <div class="content-display">
+        <div class="content-header"><%= category.name.capitalize! %></div>
+        <div class="content-container">
+            <% category.subjects.each do |thread|%>
+                <%= link_to thread, class: "content-item" do %>
+                    <h3><%= thread.title %></h3>
+                    <p><%= thread.description %></p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
 <% end %>
