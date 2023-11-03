@@ -2,6 +2,31 @@ body {
     background-color: #CAD2C5;
 }
 
+.account-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 130px;
+}
+
+.account-navigation a {
+    display: block;
+    width: 60px;
+    padding: 4px;
+    flex-grow: 1;
+    color: #354F52;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #AFCAB0;
+    border: 2px solid #679F8F;
+}
+
+.account-navigation a:hover {
+    background-color: #679F8F;
+    border: 2px solid #354F52;
+}
+
 .content-display {
     display: flex;
     flex-flow: column nowrap;
