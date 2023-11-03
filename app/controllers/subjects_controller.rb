@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
   include Paginator
   def index
-    @subjects = Subject.all
+    @categories = Category.all
   end
 
   def show
