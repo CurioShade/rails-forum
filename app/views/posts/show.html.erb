@@ -1,3 +1,6 @@
+<%= render partial: "application/breadcrumb", 
+locals: {list: @breadcrumbs} %>
+
 <div>
     <h2><%= @post.user.name %></h2>
     <h3><%= @post.title %></h3>

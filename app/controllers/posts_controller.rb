@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  include Paginator
+  include Paginator, BreadcrumbPaths
   def create
     @subject = Subject.find(params[:subject_id])
     @post = @subject.posts.build(post_params)
@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     set_pagination(2, @post.comments)
+    prepare_breadcrumbs
   end
 
   private
