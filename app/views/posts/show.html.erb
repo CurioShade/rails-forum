@@ -1,12 +1,11 @@
 <%= render partial: "application/breadcrumb", 
 locals: {list: @breadcrumbs} %>
 
-<div>
-    <h2><%= @post.user.name %></h2>
-    <h3><%= @post.title %></h3>
-    <p><%= @post.body %></p>
-    <footer><%= @post.created_at %></footer>
-</div>
+<% if @page == 1 %>
+    <div class="comment-display">
+        <%= render "post_content" %>
+    </div>
+<% end %>
 
 <%= render partial: "application/record_limiter", 
 locals: {collection: @post.comments} %>

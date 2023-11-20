@@ -1,8 +1,7 @@
-<h1>Posts</h1>
 <%= render partial: "application/breadcrumb", 
 locals: {list: @breadcrumbs} %>
 <%= render partial: "application/record_limiter", 
-locals: {collection: @subject.posts} %>
+locals: {collection: @subject.posts, class_name: "posts-container"} %>
 
 <% if logged_in? %>
     <h2>Create a post:</h2>

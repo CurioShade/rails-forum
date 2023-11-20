@@ -1,13 +1,21 @@
 <nav>
     <% if max_pages > 0%>
         <% if @page > 1 %>
-            <a href="<%= url_clean_path %>"><<</a>
-            <a href="<%= url_clean_path + "?page=#{@page-1}"%>"><</a>
+            <a href="<%= url_clean_path %>">
+                <%= image_tag "double-arrow-left.svg", size: "16x16"%>
+            </a>
+            <a href="<%= url_clean_path + "?page=#{@page-1}"%>">
+                <%= image_tag "arrow-left.svg", size: "16x16"%>
+            </a>
         <% end %>
-        <p><%= @page.to_s + " of #{max_pages}" %></p>
+        <div><%= @page.to_s + " of #{max_pages}" %></div>
         <% if @page < max_pages %>
-            <a href="<%= url_clean_path + "?page=#{@page+1}" %>">></a>
-            <a href="<%= url_clean_path + "?page=#{max_pages}" %>">>></a>
+            <a href="<%= url_clean_path + "?page=#{@page+1}" %>">
+                <%= image_tag "arrow-right.svg", size: "16x16"%>
+            </a>
+            <a href="<%= url_clean_path + "?page=#{max_pages}" %>">
+                <%= image_tag "double-arrow-right.svg", size: "16x16"%>
+            </a>
         <% end %>
     <% else %>
         <p>1 of 1</p>

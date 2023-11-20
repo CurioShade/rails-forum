@@ -1,5 +1,10 @@
-<div class="comment">
-    <h2><%= comment.user.name %></h2>
-    <p><%= comment.body %></p>
-    <footer><%= comment.created_at %></footer>
+<div class="comment-display">
+    <div class="comment-column-left">
+        <h2><%= comment.user.name %></h2>
+    </div>
+
+    <div class="comment-column-right">
+        <p><%= comment.body %></p>
+        <footer><%= comment.created_at %></footer>
+    </div>
 </div>

@@ -2,21 +2,24 @@
     <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <%= form_with url: 'login', model: user do |form| %>
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-    </div>
+    <div class="form-content">
+        <h1>Login panel</h1>
+        <div class="form-column-container">
+            <div class="form-column-left">
+                <%= form.label :name %>
+                <%= form.label :password %>
+            </div>
 
-    <div>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-    </div>
+            <div class="form-column-right">
+                <%= form.text_field :name %>
+                <%= form.password_field :password %>
+            </div>
+        </div>
 
-    <% if flash[:alert] %>
-        <div class="alert"><%= flash[:alert] %></div>
-    <% end %>
-
-    <div>
+        <% if flash[:alert] %>
+            <div class="alert"><%= flash[:alert] %></div>
+        <% end %>
+        
         <%= form.submit "Log in"%>
     </div>
 <% end %>

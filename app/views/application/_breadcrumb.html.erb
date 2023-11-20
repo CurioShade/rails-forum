@@ -2,6 +2,7 @@
     <%= link_to "Home", root_path %>
     <% if local_assigns[:list] %>
         <% list.each do |link| %>
+            <div>></div>
             <%= link_to link[:name], link[:content] %>
         <% end %>
     <% end %>
