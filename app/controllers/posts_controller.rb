@@ -2,10 +2,10 @@ class PostsController < ApplicationController
   include Paginator, BreadcrumbPaths
   def create
     @subject = Subject.find(params[:subject_id])
-    @post = @subject.posts.build(post_params)
-    @post.user = current_user
-    @post.save
-    redirect_to subject_path(@subject)
+    @post = @subject.posts.build(post_params.merge(user: current_user))
+    if @post.save
+      redirect_to subject_path(@subject)
+    end
   end
 
   def show

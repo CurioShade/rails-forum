@@ -1,10 +1,12 @@
-<% if local_assigns[:class_name] %>
-    <div class="<%= class_name %>">
+<% unless collection.empty? %>
+    <% if local_assigns[:class_name] %>
+        <div class="<%= class_name %>">
+            <%= render collection.limit_records(@record_id, @page_limit) %>
+        </div>
+    <% else %>
         <%= render collection.limit_records(@record_id, @page_limit) %>
-    </div>
-<% else %>
-    <%= render collection.limit_records(@record_id, @page_limit) %>
-<% end %>
+    <% end %>
 
-<%= render partial: "application/pager", 
-locals: {max_pages: collection.max_pages(@page_limit)} %>
+    <%= render partial: "application/pager", 
+    locals: {max_pages: collection.max_pages(@page_limit)} %>
+<% end %>

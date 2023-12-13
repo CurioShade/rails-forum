@@ -5,6 +5,6 @@
 
     <div class="comment-column-right">
         <p><%= comment.body %></p>
-        <footer><%= comment.created_at %></footer>
+        <footer><%= comment.created_at.to_fs(:full_date) %></footer>
     </div>
 </div>

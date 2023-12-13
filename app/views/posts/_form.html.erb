@@ -1,15 +1,15 @@
-<%= form_with model: [@subject, @subject.posts.build ] do |form| %>
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
+<% if logged_in? %>
+    <%= form_with model: [subject, subject.posts.build ] do |form| %>
+        <div class="post-creator">
+            <h2>Create a post</h2>
 
-    <div>
-        <%= form.label :body %>
-        <%= form.text_area :body %>
-    </div>
+            <%= form.label :title %>
+            <%= form.text_field :title, placeholder: "Title" %>
 
-    <div>
-        <%= form.submit "Create" %>
-    </div>
+            <%= form.label :body %>
+            <%= form.text_area :body, placeholder: "Write details here..." %>
+
+            <%= form.submit "Confirm" %>
+        </div>
+    <% end %>
 <% end %>

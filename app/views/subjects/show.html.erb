@@ -3,7 +3,4 @@ locals: {list: @breadcrumbs} %>
 <%= render partial: "application/record_limiter", 
 locals: {collection: @subject.posts, class_name: "posts-container"} %>
 
-<% if logged_in? %>
-    <h2>Create a post:</h2>
-    <%= render 'posts/form' %>
-<% end %>
+<%= render 'posts/form', subject: @subject %>

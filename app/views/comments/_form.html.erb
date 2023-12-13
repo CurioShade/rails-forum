@@ -1,9 +1,11 @@
-<%= form_with model: [@post, @post.comments.build] do |form| %>
-    <div>
-        <%= form.label :body %>
-        <%= form.text_area :body %>
-    </div>
-    <div>
-        <%= form.submit "Confirm" %>
-    </div>
+<% if logged_in? %>
+    <%= form_with model: [post, post.comments.build] do |form| %>
+        <div class="comment-creator">
+            <h2>Create a comment</h2>
+
+            <%= form.label :body %>
+            <%= form.text_area :body, placeholder: "Write your comment here" %>
+            <%= form.submit "Confirm" %>
+        </div>
+    <% end %>
 <% end %>

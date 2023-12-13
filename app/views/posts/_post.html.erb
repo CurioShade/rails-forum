@@ -1,4 +1,7 @@
 <%= link_to post, class: "post-item" do %>
     <h3><%= post.title %></h3>
-    <div class="item-info">creator: <%= post.user.name %></div>
+    <div class="item-info">
+        <div><%= post.user.name %>, 
+        <%= post.created_at.to_fs(:short_date)%></div>
+    </div>
 <% end %>
