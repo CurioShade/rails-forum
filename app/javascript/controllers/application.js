@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import "../turbo_redirect"
 
 const application = Application.start()
 

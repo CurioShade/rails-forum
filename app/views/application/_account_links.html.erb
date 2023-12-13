@@ -1,0 +1,8 @@
+<div class="account-navigation">
+    <% unless logged_in? %>
+        <%= link_to "Signup", signup_path, data: { turbo_frame: "modal_turbo_frame" } %>
+        <%= link_to "Login", login_path, data: { turbo_frame: "modal_turbo_frame" } %>
+    <% else %>
+        <%= button_to "Logout", logout_path, method: :delete, data: {turbo: false} %>
+    <% end %>
+</div>

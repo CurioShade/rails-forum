@@ -3,9 +3,36 @@ body {
     background-color: #CAD2C5;
 }
 
+button, input, textarea {
+    font-family: inherit;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 .topbar {
     display: flex;
     justify-content: end;
+}
+
+.background-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#modal_turbo_frame form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
 .account-navigation {
@@ -16,24 +43,26 @@ body {
     margin-bottom: 5px;
 }
 
-.account-navigation a {
+.account-navigation a, .account-navigation button {
     display: block;
     width: 60px;
     padding: 4px;
     color: #354F52;
     text-decoration: none;
     text-align: center;
+    font-size: 1rem;
     border-radius: 8px;
     background-color: #AFCAB0;
     border: 2px solid #679F8F;
 }
 
-.account-navigation a:hover {
+.account-navigation a:hover, .account-navigation button:hover {
     background-color: #679F8F;
     border: 2px solid #354F52;
 }
 
-.account-navigation a:active, input[type="submit"]:active {
+.account-navigation a:active, .account-navigation button:active, 
+input[type="submit"]:active {
     background-color: #2F3E46;
     color: #AFCAB0;
     border: 2px solid #2F3E46;
@@ -74,6 +103,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     border-radius: 0px 0px 5px 5px;
+    margin-bottom: 10px;
 }
 
 .posts-container {
@@ -143,6 +173,19 @@ body {
     margin-bottom: 4px;
 }
 
+.exit-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 4px;
+    border: none;
+    background: none;
+}
+
+.exit-button:hover {
+    cursor: pointer;
+}
+
 form {
     display: flex;
     flex-flow: column nowrap;
@@ -163,7 +206,7 @@ form h1 {
     gap: 5px;
 }
 
-.form-content .alert {
+.form-content .alert, .form-content .notice {
     text-align: center;
 }
 
@@ -183,6 +226,11 @@ form h1 {
     gap: 5px;
 }
 
+/*Quick fix for field_with_errors to avoid it breaking signup panel*/
+.form-column-right .field_with_errors {
+    display: flex;
+}
+
 .form-content label {
     font-weight: bold;
 }
@@ -198,7 +246,7 @@ form h1 {
 .form-content input {
     border: 3px solid #354F52;
     color: #354F52;
-    background-color: #AFCAB0;
+    background-color: #cad2c5;
     height: 30px;
     border-radius: 5px;
     flex: 1 1 auto;
@@ -214,10 +262,64 @@ input[type="submit"]{
     border: 2px solid #354F52;
 }
 
+.post-creator, .comment-creator {
+    flex: 1;
+    width: 1000px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #AFCAB0;
+}
+
+.post-creator h2, .comment-creator h2 {
+    font-size: 1.5rem;
+    align-self: center;
+    color: #354f52;
+    margin: 0;
+    padding: 8px;
+}
+
+.post-creator label, .comment-creator label {
+    display: none;
+}
+
+.post-creator input[type="text"]{
+    padding: 5px;
+    height: 30px;
+    border: 1px solid #679f8f;
+    border-radius: 3px;
+    background-color: #cad2c5;
+    font-size: 1.25rem;
+    color: #354f52;
+}
+
+.post-creator textarea, .comment-creator textarea{
+    resize: none;
+    overflow: auto;
+    height: 200px;
+    padding: 5px;
+    border: 1px solid #679f8f;
+    border-radius: 3px;
+    background-color: #cad2c5;
+    font-size: 0.9rem;
+    color: #354f52;
+}
+
+.post-creator input[type="submit"], .comment-creator input[type="submit"]{
+    border: 1px solid #679f8f;
+}
+
+.post-creator input[type="submit"]:active, .comment-creator input[type="submit"]:active {
+    border-color: #2F3E46;
+}
+
 nav {
     display: flex;
     gap: 5px;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 nav a {
@@ -229,4 +331,5 @@ nav a {
 
 nav div {
     font-size: 16px;
+    color: #354F52;
 }

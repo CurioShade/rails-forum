@@ -1,10 +1,5 @@
 <div class="topbar">
-    <div class="account-navigation">
-        <% unless logged_in? %>
-            <a href="<%= signup_path %>">Signup</a>
-            <a href="<%= login_path %>">Login</a>
-        <% else %>
-            <%= link_to "Logout", logout_path, data: { turbo_method: :delete}%>
-        <% end %>
-    </div>
+    <%= turbo_frame_tag "account_links_turbo_frame" do %>
+        <%= render "account_links" %>
+    <% end %>
 </div>

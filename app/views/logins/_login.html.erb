@@ -1,25 +1,28 @@
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-<%= form_with url: 'login', model: user do |form| %>
-    <div class="form-content">
-        <h1>Login panel</h1>
-        <div class="form-column-container">
-            <div class="form-column-left">
-                <%= form.label :name %>
-                <%= form.label :password %>
+<%= turbo_frame_tag "modal_turbo_frame" do %>
+    <%= form_with url: login_url, model: user, data: {controller: "modal" } do |form| %>
+        <div class="form-content">
+            <%= modal_exit_button %>
+            <% if flash[:notice] %>
+                <div class="notice"><%= flash[:notice] %></div>
+            <% end %>
+            <h1>Login panel</h1>
+            <div class="form-column-container">
+                <div class="form-column-left">
+                    <%= form.label :name %>
+                    <%= form.label :password %>
+                </div>
+
+                <div class="form-column-right">
+                    <%= form.text_field :name %>
+                    <%= form.password_field :password %>
+                </div>
             </div>
 
-            <div class="form-column-right">
-                <%= form.text_field :name %>
-                <%= form.password_field :password %>
-            </div>
+            <% if flash.now[:alert] %>
+                <div class="alert"><%= flash.now[:alert] %></div>
+            <% end %>
+            
+            <%= form.submit "Log in"%>
         </div>
-
-        <% if flash[:alert] %>
-            <div class="alert"><%= flash[:alert] %></div>
-        <% end %>
-        
-        <%= form.submit "Log in"%>
-    </div>
+    <% end %>
 <% end %>

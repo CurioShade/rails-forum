@@ -1,4 +1,5 @@
 <% content_for :top_bar do %>
+    <%= turbo_frame_tag "modal_turbo_frame" %>
     <%= render "application/account_navbar" %>
 <% end %>
 <%= render template: "layouts/application"%>

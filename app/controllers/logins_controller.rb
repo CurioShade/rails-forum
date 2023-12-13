@@ -1,7 +1,6 @@
 class LoginsController < ApplicationController
   layout "application"
   def new
-    @user = User.new
   end
 
   def create
@@ -10,10 +9,12 @@ class LoginsController < ApplicationController
     unless @user.nil? || @user == false
       reset_session
       session[:current_user_id] = @user.id
-      flash[:notice] = "Successful login!"
-      redirect_to root_url
+      respond_to do |format|
+        format.html { redirect_to root_url}
+        format.turbo_stream 
+      end
     else
-      flash[:alert] = "Wrong name or password!"
+      flash.now[:alert] = "Wrong name or password!"
       render :new, status: :unauthorized
     end
   end
@@ -21,7 +22,9 @@ class LoginsController < ApplicationController
   def destroy
     session.delete(:current_user_id)
     @_current_user = nil
-    redirect_to root_url, status: :see_other
+    respond_to do |format|
+      format.html { redirect_to root_url, status: :see_other }
+    end
   end
 
   private

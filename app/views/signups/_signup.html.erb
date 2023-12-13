@@ -1,24 +1,27 @@
-<%= form_with url: 'signup', model: user do |form| %>
-    <div class="form-content">
-        <h1>Registration panel</h1>
-        <div class="form-column-container">
-            <div class="form-column-left">
-                <%= form.label :name, class: "required" %>
-                <%= form.label :password, class: "required" %>
-                <%= form.label :password_confirmation, class: "required" %>            
+<%= turbo_frame_tag "modal_turbo_frame" do %>
+    <%= form_with url: signup_url, model: user, data: { controller: "modal" } do |form| %>
+        <div class="form-content">
+            <%= modal_exit_button %>
+            <h1>Registration panel</h1>
+            <div class="form-column-container">
+                <div class="form-column-left">
+                    <%= form.label :name, class: "required" %>
+                    <%= form.label :password, class: "required" %>
+                    <%= form.label :password_confirmation, class: "required" %>            
+                </div>
+
+                <div class="form-column-right">
+                    <%= form.text_field :name %>
+                    <%= form.password_field :password %>
+                    <%= form.password_field :password_confirmation %>
+                </div>
             </div>
 
-            <div class="form-column-right">
-                <%= form.text_field :name %>
-                <%= form.password_field :password %>
-                <%= form.password_field :password_confirmation %>
-            </div>
-        </div>
+            <% user.errors.full_messages.each do |message| %>
+                <div class="alert"><%= message %></div>
+            <% end %>
 
-        <% user.errors.full_messages.each do |message| %>
-            <div class="alert"><%= message %></div>
-        <% end %>
-
-        <%= form.submit "Register"%>
-    <div>
+            <%= form.submit "Register"%>
+        <div>
+    <% end %>
 <% end %>
