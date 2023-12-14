@@ -1,15 +1,23 @@
 <% if logged_in? %>
-    <%= form_with model: [subject, subject.posts.build ] do |form| %>
-        <div class="post-creator">
-            <h2>Create a post</h2>
+    <%= turbo_frame_tag "post_builder" do %>
+        <%= form_with model: post_model_scope(subject) do |form| %>
+            <div class="post-creator">
+                <h2>Create a post</h2>
 
-            <%= form.label :title %>
-            <%= form.text_field :title, placeholder: "Title" %>
+                <%= form.label :title %>
+                <%= form.text_field :title, placeholder: "Title" %>
 
-            <%= form.label :body %>
-            <%= form.text_area :body, placeholder: "Write details here..." %>
+                <%= form.label :body %>
+                <%= form.text_area :body, placeholder: "Write details here..." %>
 
-            <%= form.submit "Confirm" %>
-        </div>
+                <% if subject.is_a? Array %>
+                    <% subject[1].errors.full_messages.each do |message| %>
+                        <div class="alert"><%= message %></div>
+                    <% end %>
+                <% end %>
+
+                <%= form.submit "Confirm" %>
+            </div>
+        <% end %>
     <% end %>
 <% end %>

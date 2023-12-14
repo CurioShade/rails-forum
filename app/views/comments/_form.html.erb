@@ -1,11 +1,20 @@
 <% if logged_in? %>
-    <%= form_with model: [post, post.comments.build] do |form| %>
-        <div class="comment-creator">
-            <h2>Create a comment</h2>
+    <%= turbo_frame_tag "comment_builder" do %>
+        <%= form_with model: comment_model_scope(post) do |form| %>
+            <div class="comment-creator">
+                <h2>Create a comment</h2>
 
-            <%= form.label :body %>
-            <%= form.text_area :body, placeholder: "Write your comment here" %>
-            <%= form.submit "Confirm" %>
-        </div>
+                <%= form.label :body %>
+                <%= form.text_area :body, placeholder: "Write your comment here" %>
+
+                <% if post.is_a? Array %>
+                    <% post[1].errors.full_messages.each do |message| %>
+                        <div class="alert"><%= message %></div>
+                    <% end %>
+                <% end %>
+
+                <%= form.submit "Confirm" %>
+            </div>
+        <% end %>
     <% end %>
 <% end %>

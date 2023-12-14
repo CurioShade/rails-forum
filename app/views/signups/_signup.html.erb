@@ -18,7 +18,7 @@
             </div>
 
             <% user.errors.full_messages.each do |message| %>
-                <div class="alert"><%= message %></div>
+                <div class="alert"><%= message.capitalize %></div>
             <% end %>
 
             <%= form.submit "Register"%>

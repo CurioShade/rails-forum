@@ -4,7 +4,13 @@ class PostsController < ApplicationController
     @subject = Subject.find(params[:subject_id])
     @post = @subject.posts.build(post_params.merge(user: current_user))
     if @post.save
-      redirect_to subject_path(@subject)
+      respond_to do |format|
+        format.html {redirect_to post_path(@post)}
+        format.turbo_stream
+      end
+    else
+      render partial: "posts/form", locals: {subject: [@subject, @post]},
+      status: :unprocessable_entity
     end
   end
 
