@@ -7,6 +7,11 @@ button, input, textarea {
     font-family: inherit;
 }
 
+.alert {
+    color: #354f52;
+    text-align: center;
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -127,7 +132,8 @@ input[type="submit"]:active {
 }
 
 .content-item h3, .post-item h3 {
-    margin-bottom: 3px;
+    margin-top: 8px;
+    margin-bottom: 14px;
 }
 
 .content-item:first-child, .post-item:first-child {
@@ -206,10 +212,6 @@ form h1 {
     gap: 5px;
 }
 
-.form-content .alert, .form-content .notice {
-    text-align: center;
-}
-
 .form-column-container {
     display: flex;
     flex-flow: row nowrap;
@@ -224,11 +226,6 @@ form h1 {
     justify-content: space-around;
     flex: 1;
     gap: 5px;
-}
-
-/*Quick fix for field_with_errors to avoid it breaking signup panel*/
-.form-column-right .field_with_errors {
-    display: flex;
 }
 
 .form-content label {
