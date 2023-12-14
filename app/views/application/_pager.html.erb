@@ -1,9 +1,9 @@
 <% if max_pages > 1%>
     <nav>    
-        <%= render_pager_element "double-arrow-left" %>
-        <%= render_pager_element "arrow-left", @page-1 %>
+        <%= render_pager_element "double-arrow-left", max_pages %>
+        <%= render_pager_element "arrow-left", max_pages, @page-1 %>
         <div><%= @page.to_s + " of #{max_pages}" %></div>
-        <%= render_pager_element "arrow-right", @page+1 %>
-        <%= render_pager_element "double-arrow-right", max_pages %>
+        <%= render_pager_element "arrow-right", max_pages, @page+1 %>
+        <%= render_pager_element "double-arrow-right", max_pages, max_pages %>
     </nav>
 <% end %>

@@ -5,9 +5,9 @@ module ApplicationHelper
     end
 
     # Renders appropriate html tags for pager partial
-    def render_pager_element(image, page=1)
-        clamped_page = page.clamp(1, @page_limit)
-        page_param = "?page=#{page}"
+    def render_pager_element(image, max_pages, page=1)
+        clamped_page = page.clamp(1, max_pages)
+        page_param = "?page=#{clamped_page}"
         tag.a href: url_clean_path + "#{page_param if page > 1}", 
         class: "#{"hidden" if @page == clamped_page}" do
             image_tag("#{image}.svg", size: "16x16")
