@@ -1,6 +1,10 @@
 <%= render partial: "application/breadcrumb", 
 locals: {list: @breadcrumbs} %>
-<%= render partial: "application/record_limiter", 
-locals: {collection: @subject.posts, class_name: "posts-container"} %>
-
-<%= render 'posts/form', subject: @subject %>
+<% unless @subject.posts.empty? %>
+    <%= render partial: "application/record_limiter", 
+    locals: {collection: @subject.posts, class_name: "posts-container"} %>
+<% else %>
+    <%= render partial: "posts/no_record", locals: {model: Post } %>
+<% end %>
+<%= render 'posts/form', subject: @subject, 
+post: @subject.posts.build %>

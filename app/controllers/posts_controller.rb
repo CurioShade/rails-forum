@@ -9,8 +9,8 @@ class PostsController < ApplicationController
         format.turbo_stream
       end
     else
-      render partial: "posts/form", locals: {subject: [@subject, @post]},
-      status: :unprocessable_entity
+      render partial: "posts/form", locals: {subject: @subject,
+      post: @post}, status: :unprocessable_entity
     end
   end
 
@@ -18,6 +18,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     set_pagination(2, @post.comments)
     prepare_breadcrumbs
+  end
+
+  def destroy
+    @subject = Subject.find(params[:subject_id])
+    @post = @subject.posts.find(params[:id])
+    @post.destroy
+    redirect_to subject_path(@subject)
   end
 
   private

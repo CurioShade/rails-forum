@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "categories" do %>
+    <% @categories.each do |category| %>
+        <%= render partial: "categories/category_turbo", locals: {category: category,
+        subjects: category.subjects }%>
+    <% end %>
+<% end %>
+
+<%= link_to "Create category", new_category_path, class: "button",
+data: { turbo_frame: "category_builder" } %>
+
+<%= turbo_frame_tag "category_builder" %>

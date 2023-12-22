@@ -1,0 +1,5 @@
+<%= turbo_frame_tag subject, class: "content-turbo" do %>
+    <%= render partial: "subjects/subject",
+    locals: {render_turbo: false, subject: subject} %>
+    <%= subject_destroy_button category, subject %>
+<% end %>

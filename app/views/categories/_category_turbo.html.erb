@@ -1,0 +1,21 @@
+<%= turbo_frame_tag category do %>
+    <div class="content-display">
+        <div class="content-header"><%= category.name.capitalize %></div>
+        <div class="content-container">
+            <% if local_assigns[:subjects] %>
+                <%= turbo_frame_tag category_turbo_name(category) do %>
+                    <% subjects.each do |subject| %>
+                        <%= render partial: "subjects/subject_turbo",
+                        locals: {subject: subject, category: category} %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= turbo_frame_tag category_turbo_name(category)%>
+            <% end %>
+            <%= link_to new_category_subject_path(category), class: "content-item center-text", 
+            data: {turbo_frame: "category_builder"} do %>
+                <h3>Create thread</h3>
+            <% end %>
+        </div>
+    </div>
+<% end %>

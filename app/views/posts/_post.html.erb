@@ -1,7 +1,12 @@
-<%= link_to post, class: "post-item" do %>
-    <h3><%= post.title %></h3>
-    <div class="item-info">
-        <div><%= post.user.name %>, 
-        <%= post.created_at.to_fs(:short_date)%></div>
-    </div>
-<% end %>
+<div class="flex-wrapper">
+    <% if current_user == post.user || current_user&.admin_access?%>
+            <%= post_destroy_button post.subject, post %>
+        <% end %>
+    <%= link_to post, class: "post-item #{"first-item" if post_counter == 0}" do %>
+        <h3><%= post.title %></h3>
+        <div class="item-info">
+            <div><%= post.user.name %>, 
+            <%= post.created_at.to_fs(:short_date)%></div>
+        </div>
+    <% end %>
+</div>

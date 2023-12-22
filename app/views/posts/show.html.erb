@@ -10,4 +10,4 @@ locals: {list: @breadcrumbs} %>
 <%= render partial: "application/record_limiter", 
 locals: {collection: @post.comments} %>
 
-<%= render 'comments/form', post: @post %>
+<%= render 'comments/form', post: @post, comment: @post.comments.build %>

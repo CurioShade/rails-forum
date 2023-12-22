@@ -16,6 +16,10 @@ button, input, textarea {
     visibility: hidden;
 }
 
+.center-text {
+    text-align: center;
+}
+
 .topbar {
     display: flex;
     justify-content: end;
@@ -48,7 +52,7 @@ button, input, textarea {
     margin-bottom: 5px;
 }
 
-.account-navigation a, .account-navigation button {
+.account-navigation a, .account-navigation button, .button {
     display: block;
     width: 60px;
     padding: 4px;
@@ -61,16 +65,21 @@ button, input, textarea {
     border: 2px solid #679F8F;
 }
 
-.account-navigation a:hover, .account-navigation button:hover {
+.account-navigation a:hover, .account-navigation button:hover,
+.button:hover {
     background-color: #679F8F;
     border: 2px solid #354F52;
 }
 
 .account-navigation a:active, .account-navigation button:active, 
-input[type="submit"]:active {
+input[type="submit"]:active, .button:active {
     background-color: #2F3E46;
     color: #AFCAB0;
     border: 2px solid #2F3E46;
+}
+
+.button {
+    width: fit-content;
 }
 
 .breadcrumb-list {
@@ -88,7 +97,7 @@ input[type="submit"]:active {
     color: #679F8F;
 }
 
-.content-display {
+.content-display, .notification-display {
     display: flex;
     flex-flow: column nowrap;
     margin-bottom: 4px;
@@ -116,6 +125,24 @@ input[type="submit"]:active {
     border-radius: 5px;
 }
 
+.content-turbo {
+    display: flex;
+    position: relative;
+}
+
+.content-turbo:not(:first-child) {
+    border-top: 3px solid #679F8F;
+}
+
+.content-turbo:hover:not(:first-child), 
+.content-turbo:hover + .content-turbo {
+    border-color: #354F52;
+}
+
+.flex-wrapper {
+    position: relative;
+}
+
 .content-item, .post-item {
     display: block;
     flex: 1;
@@ -131,12 +158,16 @@ input[type="submit"]:active {
     padding-left: 8px;
 }
 
+.content-item {
+    position: relative;
+}
+
 .content-item h3, .post-item h3 {
     margin-top: 8px;
     margin-bottom: 14px;
 }
 
-.content-item:first-child, .post-item:first-child {
+.content-item:first-child, .first-item {
     border: none;
 }
 
@@ -156,6 +187,7 @@ input[type="submit"]:active {
 }
 
 .comment-display {
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
     background-color: #AFCAB0;
@@ -249,6 +281,33 @@ form h1 {
     flex: 1 1 auto;
 }
 
+.notification-top, .notification-bottom {
+    background-color: #679F8F;
+    height: 12px;
+}
+
+.notification-top {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.notification-display {
+    margin-bottom: 10px;
+}
+
+.notification-display h3 {
+    background-color: #AFCAB0;
+    color: #354F52;
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.notification-bottom {
+    border-radius: 0px 0px 5px 5px;
+}
+
+
 input[type="submit"]{
     background-color: #CAD2C5;
     color: #354F52;
@@ -259,7 +318,8 @@ input[type="submit"]{
     border: 2px solid #354F52;
 }
 
-.post-creator, .comment-creator {
+.post-creator, .comment-creator, .category-creator, .thread-creator {
+    position: relative;
     flex: 1;
     width: 1000px;
     display: flex;
@@ -270,7 +330,8 @@ input[type="submit"]{
     background-color: #AFCAB0;
 }
 
-.post-creator h2, .comment-creator h2 {
+.post-creator h2, .comment-creator h2, .category-creator h2, 
+.thread-creator h2 {
     font-size: 1.5rem;
     align-self: center;
     color: #354f52;
@@ -278,11 +339,13 @@ input[type="submit"]{
     padding: 8px;
 }
 
-.post-creator label, .comment-creator label {
+.post-creator label, .comment-creator label, .category-creator label, 
+.thread-creator label {
     display: none;
 }
 
-.post-creator input[type="text"]{
+.post-creator input[type="text"], .category-creator input[type="text"], 
+.thread-creator input[type="text"]{
     padding: 5px;
     height: 30px;
     border: 1px solid #679f8f;
@@ -292,7 +355,8 @@ input[type="submit"]{
     color: #354f52;
 }
 
-.post-creator textarea, .comment-creator textarea{
+.post-creator textarea, .comment-creator textarea,
+.category-creator textarea, .thread-creator textarea {
     resize: none;
     overflow: auto;
     height: 200px;
@@ -304,11 +368,13 @@ input[type="submit"]{
     color: #354f52;
 }
 
-.post-creator input[type="submit"], .comment-creator input[type="submit"]{
+.post-creator input[type="submit"], .comment-creator input[type="submit"],
+.category-creator input[type="submit"],  .thread-creator input[type="submit"] {
     border: 1px solid #679f8f;
 }
 
-.post-creator input[type="submit"]:active, .comment-creator input[type="submit"]:active {
+.post-creator input[type="submit"]:active, .comment-creator input[type="submit"]:active,
+.category-creator input[type="submit"]:active,  .thread-creator input[type="submit"]:active {
     border-color: #2F3E46;
 }
 

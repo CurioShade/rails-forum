@@ -1,0 +1,20 @@
+<%= turbo_frame_tag "category_builder" do %>
+    <% form_with model: [category, subject], data: {controller: "form"} do |form| %>
+        <div class="thread-creator">
+            <%= form_exit_button %>
+            <h2>Create thread</h2>
+            <%= form.label :title %>
+            <%= form.text_field :title, placeholder: "Title" %>
+
+            <%= form.label :description %>
+            <%= form.text_field :description, 
+            placeholder: "Description here..." %>
+
+            <% subject.errors.full_messages.each do |message| %>
+                <div class="alert"><%= message %></div>
+            <% end %>
+
+            <%= form.submit "Confirm" %>
+        </div>
+    <% end %>
+<% end %>

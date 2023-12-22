@@ -1,14 +1,6 @@
 <%= render "application/breadcrumb" %>
-<% @categories.each do |category| %>
-    <div class="content-display">
-        <div class="content-header"><%= category.name.capitalize! %></div>
-        <div class="content-container">
-            <% category.subjects.each do |thread|%>
-                <%= link_to thread, class: "content-item" do %>
-                    <h3><%= thread.title %></h3>
-                    <p><%= thread.description %></p>
-                <% end %>
-            <% end %>
-        </div>
-    </div>
+<% if current_user&.admin_access? %>
+    <%= render "categories/categories_builder" %>
+<% else %>
+    <%= render @categories %>
 <% end %>

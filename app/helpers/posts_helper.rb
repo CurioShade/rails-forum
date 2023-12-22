@@ -1,9 +1,8 @@
 module PostsHelper
-    def post_model_scope(model)
-        if model.is_a? Array
-            model
-        else
-            [model, model.posts.build]
+    def post_destroy_button(subject, post)
+        button_to subject_post_path(subject, post), method: :delete,
+        class: "exit-button" do
+            image_tag "exit2.svg", size: "18x18"
         end
     end
 end

@@ -20,4 +20,16 @@ module ApplicationHelper
             image_tag "exit.svg", size: "20x20"
         end
     end
+
+    # Render exit button for the form
+    def form_exit_button
+        tag.button class: "exit-button", data: {action: "click->form#closeForm"} do
+            image_tag "exit.svg", size: "18x18"
+        end
+    end
+
+    # Returns custom turbo tag name for categories
+    def category_turbo_name(category)
+        "#{dom_id(category)}_subjects"
+    end
 end

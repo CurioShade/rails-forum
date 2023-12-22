@@ -1,6 +1,6 @@
 <% if logged_in? %>
     <%= turbo_frame_tag "post_builder" do %>
-        <%= form_with model: post_model_scope(subject) do |form| %>
+        <%= form_with model: [subject, post] do |form| %>
             <div class="post-creator">
                 <h2>Create a post</h2>
 
@@ -10,10 +10,8 @@
                 <%= form.label :body %>
                 <%= form.text_area :body, placeholder: "Write details here..." %>
 
-                <% if subject.is_a? Array %>
-                    <% subject[1].errors.full_messages.each do |message| %>
-                        <div class="alert"><%= message %></div>
-                    <% end %>
+                <% post.errors.full_messages.each do |message| %>
+                    <div class="alert"><%= message %></div>
                 <% end %>
 
                 <%= form.submit "Confirm" %>

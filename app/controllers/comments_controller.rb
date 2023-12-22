@@ -10,8 +10,17 @@ class CommentsController < ApplicationController
         format.turbo_stream
       end
     else
-      render partial: "comments/form", locals: {post: [@post, @comment]},
+      render partial: "comments/form", locals: {post: @post, comment: @comment},
       status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+    if @comment.destroyed?
+      redirect_to post_path(@post)
     end
   end
 
