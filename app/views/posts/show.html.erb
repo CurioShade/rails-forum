@@ -2,9 +2,7 @@
 locals: {list: @breadcrumbs} %>
 
 <% if @page == 1 %>
-    <div class="comment-display">
-        <%= render "post_content" %>
-    </div>
+    <%= render "post_content" %>
 <% end %>
 
 <%= render partial: "application/pagination", locals: 

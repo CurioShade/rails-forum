@@ -1,8 +1,8 @@
 <% unless collection.empty? %>
     <% if local_assigns[:class_name] %>
-        <div class="<%= class_name %>">
+        <article class="<%= class_name %>">
             <%= render collection %>
-        </div>
+        </article>
     <% else %>
         <%= render collection %>
     <% end %>

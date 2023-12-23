@@ -1,7 +1,7 @@
-<div class="content-display">
-    <div class="content-header"><%= category.name.capitalize %></div>
-    <div class="content-container">
+<section class="content-display">
+    <header class="content-header"><%= category.name.capitalize %></header>
+    <article class="content-container">
         <%= render partial: "subjects/subject", 
         collection: category.subjects, locals: {render_turbo: true} %>
-    </div>
-</div>
+    </article>
+</section>

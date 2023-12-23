@@ -1,4 +1,4 @@
-<div class="flex-wrapper">
+<article class="flex-wrapper">
     <% if current_user == post.user || current_user&.admin_access?%>
             <%= post_destroy_button post.subject, post %>
         <% end %>
@@ -9,4 +9,4 @@
             <%= post.created_at.to_fs(:short_date)%></div>
         </div>
     <% end %>
-</div>
+</article>

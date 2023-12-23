@@ -1,9 +1,9 @@
-<div class="breadcrumb-list">
-    <%= link_to "Home", root_path %>
+<menu class="breadcrumb-list">
+    <li><%= link_to "Home", root_path %></li>
     <% if local_assigns[:list] %>
         <% list.each do |link| %>
-            <div>></div>
-            <%= link_to link[:name], link[:content] %>
+            <li>></li>
+            <li><%= link_to link[:name], link[:content] %></li>
         <% end %>
     <% end %>
-</div>
+</menu>

@@ -36,7 +36,7 @@ button, input, textarea {
     background-color: rgba(0,0,0,0.5);
 }
 
-#modal_turbo_frame form {
+#modal form {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -86,11 +86,17 @@ input[type="submit"]:active, .button:active {
     display: flex;
     gap: 5px;
     margin-bottom: 5px;
+    margin-top: 0px;
+    padding: 0px;
 }
 
-.breadcrumb-list a, .breadcrumb-list div {
+.breadcrumb-list a, .breadcrumb-list li {
     text-decoration: none;
     color: #354F52;
+}
+
+.breadcrumb-list li {
+    list-style: none;
 }
 
 .breadcrumb-list a:hover {

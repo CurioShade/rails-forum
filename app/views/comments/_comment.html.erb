@@ -1,13 +1,13 @@
-<div class="comment-display">
+<article class="comment-display">
     <% if current_user == comment.user || current_user&.admin_access?%>
         <%= comment_destroy_button comment.post, comment %>
     <% end %>
-    <div class="comment-column-left">
+    <aside class="comment-column-left">
         <h2><%= comment.user.name %></h2>
-    </div>
+    </aside>
 
-    <div class="comment-column-right">
+    <article class="comment-column-right">
         <p><%= comment.body %></p>
         <footer><%= comment.created_at.to_fs(:full_date) %></footer>
-    </div>
-</div>
+    </article>
+</article>

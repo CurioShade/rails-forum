@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "modal_turbo_frame" do %>
+<%= turbo_frame_tag "modal" do %>
     <%= form_with url: signup_url, model: user, data: { controller: "modal" } do |form| %>
         <div class="form-content">
             <%= modal_exit_button %>
