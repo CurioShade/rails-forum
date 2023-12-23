@@ -1,7 +1,7 @@
 <% if logged_in? %>
     <%= turbo_frame_tag "comment_builder" do %>
         <%= form_with model: [post, comment] do |form| %>
-            <div class="comment-creator">
+            <div class="creation-panel">
                 <h2>Create a comment</h2>
 
                 <%= form.label :body %>

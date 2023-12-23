@@ -1,6 +1,8 @@
-<%= render "application/breadcrumb" %>
-<% if current_user&.admin_access? %>
-    <%= render "categories/categories_builder" %>
-<% else %>
-    <%= render @categories %>
-<% end %>
+<main>
+    <%= render "application/breadcrumb" %>
+    <% if current_user&.admin_access? %>
+        <%= render "categories/categories_builder" %>
+    <% else %>
+        <%= render @categories %>
+    <% end %>
+</main>

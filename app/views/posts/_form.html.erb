@@ -1,7 +1,7 @@
 <% if logged_in? %>
     <%= turbo_frame_tag "post_builder" do %>
         <%= form_with model: [subject, post] do |form| %>
-            <div class="post-creator">
+            <div class="creation-panel">
                 <h2>Create a post</h2>
 
                 <%= form.label :title %>

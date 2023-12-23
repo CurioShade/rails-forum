@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "category_builder" do %>
     <% form_with model: category, data: {controller: "form"} do |form| %>
-        <div class="category-creator">
+        <div class="creation-panel">
             <%= form_exit_button %>
             <h2>Create category</h2>
             <%= form.label :name %>

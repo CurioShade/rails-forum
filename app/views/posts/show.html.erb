@@ -1,11 +1,13 @@
-<%= render partial: "application/breadcrumb", 
-locals: {list: @breadcrumbs} %>
+<main>
+    <%= render partial: "application/breadcrumb", 
+    locals: {list: @breadcrumbs} %>
 
-<% if @page == 1 %>
-    <%= render "post_content" %>
-<% end %>
+    <% if @page == 1 %>
+        <%= render "post_content" %>
+    <% end %>
 
-<%= render partial: "application/pagination", locals: 
-{collection: @comments}%>
+    <%= render partial: "application/pagination", locals: 
+    {collection: @comments}%>
 
-<%= render 'comments/form', post: @post, comment: @post.comments.build %>
+    <%= render 'comments/form', post: @post, comment: @post.comments.build %>
+</main>
