@@ -1,0 +1,12 @@
+<% unless collection.empty? %>
+    <% if local_assigns[:class_name] %>
+        <div class="<%= class_name %>">
+            <%= render collection %>
+        </div>
+    <% else %>
+        <%= render collection %>
+    <% end %>
+
+    <%= render partial: "application/pager", locals: 
+    {max_pages: @max_pages } %>
+<% end %>

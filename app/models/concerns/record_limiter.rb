@@ -3,7 +3,13 @@ module RecordLimiter
     extend ActiveSupport::Concern
 
     included do
-        scope :limit_records, ->(index, amount) { where("id >= ?", index).limit(amount) }
+        scope :limit_records, ->(index, amount, reverse=false) do 
+            if reverse == false
+                where("id >= ?", index).limit(amount)
+            else
+                where("id <= ?", index).limit(amount)
+            end
+        end
     end
 
     class_methods do

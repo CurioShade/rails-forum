@@ -1,10 +1,12 @@
 <%= render partial: "application/breadcrumb", 
 locals: {list: @breadcrumbs} %>
-<% unless @subject.posts.empty? %>
-    <%= render partial: "application/record_limiter", 
-    locals: {collection: @subject.posts, class_name: "posts-container"} %>
-<% else %>
-    <%= render partial: "posts/no_record", locals: {model: Post } %>
+
+<%= render partial: "application/pagination", locals: {
+collection: @posts, class_name: "posts-container" } %>
+
+<% if @posts.empty? %>
+    <%= render partial: "application/no_record", locals: {model: Post } %>
 <% end %>
+
 <%= render 'posts/form', subject: @subject, 
 post: @subject.posts.build %>

@@ -11,7 +11,7 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
-    set_pagination(8, @subject.posts)
+    @posts = set_pagination(6, @subject.posts.order(created_at: :desc), true)
     prepare_breadcrumbs
   end
 

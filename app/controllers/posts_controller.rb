@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    set_pagination(2, @post.comments)
+    @comments = set_pagination(2, @post.comments)
     prepare_breadcrumbs
   end
 

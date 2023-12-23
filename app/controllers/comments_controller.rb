@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
+      @post.touch
       @last_page = @post.comments.max_pages(2)
       respond_to do |format|
         format.html {redirect_to post_path(@post).concat("?page=#{@last_page}")}
