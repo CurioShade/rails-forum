@@ -154,7 +154,6 @@ input[type="submit"]:active, .button:active {
 }
 
 .content-item, .post-item {
-    display: block;
     flex: 1;
     color: #354F52;
     text-decoration: none;
@@ -164,11 +163,37 @@ input[type="submit"]:active, .button:active {
 }
 
 .post-item {
+    display: flex;
     padding: 4px;
     padding-left: 8px;
 }
 
+.post-item a {
+    text-decoration: none;
+    color: #354F52;
+}
+
+.post-item p {
+    margin: 4px 0px;
+}
+
+.post-item:hover, .post-item:hover a {
+    background-color: #354F52;
+    color: #AFCAB0;
+}
+
+.post-column-left {
+    flex: 10;
+}
+
+.post-column-right {
+    flex: 1;
+    padding: 4px;
+    margin: auto;
+}
+
 .content-item {
+    display: block;
     position: relative;
 }
 
@@ -191,15 +216,11 @@ input[type="submit"]:active, .button:active {
     border-color: #354F52;
 }
 
-.post-item:hover {
-    background-color: #354F52;
-    color: #AFCAB0;
-}
-
 .comment-display {
     position: relative;
     display: flex;
     flex-flow: row nowrap;
+    gap: 14px;
     background-color: #AFCAB0;
     color: #354F52;
     border: 2px solid #679F8F;
@@ -215,6 +236,7 @@ input[type="submit"]:active, .button:active {
 
 .comment-column-right {
     flex: 9;
+    overflow-wrap: break-word;
 }
 
 .item-info {

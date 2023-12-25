@@ -1,12 +1,21 @@
-<article class="flex-wrapper">
+<%= tag.article class: "post-item#{" first-item" if post_counter == 0}" do %>
     <% if current_user == post.user || current_user&.admin_access?%>
         <%= post_destroy_button post.subject, post %>
     <% end %>
-    <%= link_to post, class: "post-item #{"first-item" if post_counter == 0}" do %>
-        <h3><%= post.title %></h3>
+    <div class="post-column-left">
+        <h3><%= link_to post.title, post %></h3>
         <div class="item-info">
             <div><%= post.user.name %>, 
             <%= post.created_at.to_fs(:short_date)%></div>
         </div>
-    <% end %>
-</article>
+    </div>
+    <div class="post-column-right">
+        <% if post.comments.size > 0 %>
+            <strong><%= post.comments.last.user.name %></strong>
+            <p><%= post.comments.last.created_at.to_fs(:short_date)%></p>
+        <% else %>
+            <strong><%= post.user.name %></strong>
+            <p><%= post.created_at.to_fs(:short_date)%></p>
+        <% end %>
+    </div>
+<% end %>
