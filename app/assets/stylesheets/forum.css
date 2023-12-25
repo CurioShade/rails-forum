@@ -114,6 +114,7 @@ input[type="submit"]:active, .button:active {
 }
 
 .content-header {
+    position: relative;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
@@ -121,6 +122,10 @@ input[type="submit"]:active, .button:active {
     border-bottom: none;
     background-color: #679F8F;
     border-radius: 5px 5px 0px 0px;
+}
+
+.content-header p {
+    margin: 0;
 }
 
 .content-container, .posts-container {
@@ -163,6 +168,7 @@ input[type="submit"]:active, .button:active {
 }
 
 .post-item {
+    position: relative;
     display: flex;
     padding: 4px;
     padding-left: 8px;
@@ -250,6 +256,12 @@ input[type="submit"]:active, .button:active {
     padding: 4px;
     border: none;
     background: none;
+}
+
+.content-header .exit-button {
+    padding: 0;
+    top: 3px;
+    left: 3px;
 }
 
 .exit-button:hover {

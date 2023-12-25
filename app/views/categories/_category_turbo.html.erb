@@ -1,6 +1,9 @@
 <%= turbo_frame_tag category do %>
     <section class="content-display">
-        <header class="content-header"><%= category.name.capitalize %></header>
+        <header class="content-header">
+            <p><%= category.name.capitalize %></p>
+            <%= category_destroy_button(category) %>
+        </header>
         <article class="content-container">
             <% if local_assigns[:subjects] %>
                 <%= turbo_frame_tag category_turbo_name(category) do %>
