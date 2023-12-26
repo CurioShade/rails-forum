@@ -33,15 +33,20 @@ As admin, you can freely delete any comment or post you don't like.
 ![Admin destroying posts and comments of other users](https://github.com/CurioShade/rails-forum/assets/80947734/1d627a71-25da-4dc4-ba3c-7b002ade4be3)
 
 
-## What I need to initalize the project?
-Outside of owning Ruby and Rails on your computer, as well as making sure you have bcrypt gem, you should create your [own master key](https://stackoverflow.com/questions/59993437/can-i-generate-a-new-config-master-key-file), 
-since it is not included in the project. After you do so, you should create new database and seed it with the values from seeds.rb. To do so, you should do as follows:
+## What do I need to initalize the project?
+Outside of owning Ruby and Rails on your computer, as well as making sure you have bcrypt gem (the easiest way to do so is just install gems from Gemfile by using ```bundle install```),
+you should create your [own master key](https://stackoverflow.com/questions/59993437/can-i-generate-a-new-config-master-key-file), 
+since it is not included in the project. After you do so, you next step is to create new database and seed it with the values from seeds.rb. Following commands will help you with that:
 ```
 $ bin/rails db:create
 $ bin/rails db:migrate
 $ bin/rails db:seed
 ```
 That should be enough to make the project working.
+> [!IMPORTANT]
+> If you are on Windows, remember that commands need to be written as ```ruby bin/rails``` instead of ```bin/rails```.
+> If for some reason you would like to drop a database and will have problems with doing so
+> (from what I have noticed, ```bin/rails db:drop``` command has problems with permissions on Windows), use ```bin/rails db:drop:_unsafe```.
 
 ## Outside contributions
 Since it was my first serious use of Rails in a web project, there were quite few times when I looked for additional help outside the docs themselves.
